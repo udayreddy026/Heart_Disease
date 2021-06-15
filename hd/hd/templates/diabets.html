@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Diabets Prediction Assistant</h2><hr>
+  <form action="/diabets_res" method="post">
+      {% csrf_token %}
+
+      <input class="form-control" type="text" placeholder="Num_preg Number of Preg Ex: 6.0 " aria-label="default input example" name="num_preg"><br>
+      <input class="form-control" type="text" placeholder="Glucose_conc Ex:148.0" aria-label="default input example" name="glucose_conc"><br>
+      <input class="form-control" type="text" placeholder="diastolic_bp Ex: 72.0" aria-label="default input example" name="diastolic_bp"><br>
+      <input class="form-control" type="text" placeholder="Insulin Ex: 0.0" aria-label="default input example" name="insulin"><br>
+      <input class="form-control" type="text" placeholder="BMI- Body Mass Index Ex:33.6" aria-label="default input example" name="bmi"><br>
+      <input class="form-control" type="text" placeholder="Diab_pred Ex: 0.6270" aria-label="default input example" name="diab_pred"><br>
+      <input class="form-control" type="text" placeholder="Age Ex: 50.0" aria-label="default input example" name="age"><br>
+      <input class="form-control" type="text" placeholder="Skin Ex: 1.3790" aria-label="default input example" name="skin"><br>
+
+      <button type="submit" class="btn btn-outline-success btn-lg" value="predict">Success</button>
+  </form>
+{% endblock content %}    
+           
+
+{% block res %}
+  <h2>Result</h2> <hr>
+  <h5><b>Note:</b></h5>
+  <p>This is machine predicted result once you can go and visite doctors and take your decision</p>
+  <h4>{{ res_sms }}</h4>
+{% endblock res %}

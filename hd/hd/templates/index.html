@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Heart Disease Prediction Assistant</h2><hr>
+  <form action="home" method="post">
+      {% csrf_token %}
+
+      <input class="form-control" type="text" placeholder="Age in years" aria-label="default input example" name="age"><br>
+
+      <input class="form-control" type="text" placeholder="Sex - (1 = male; 0 = female)" aria-label="default input example" name="sex"><br>
+
+      <input class="form-control" type="text" placeholder="CP-Chest pain type" aria-label="default input example" name="cp"><br>
+
+      <input class="form-control" type="text" placeholder="Trestbps-Resting blood pressure" aria-label="default input example" name="trestbps"><br>
+
+      <input class="form-control" type="text" placeholder="Chol - serum cholestoral in mg/dl" aria-label="default input example" name="chol"><br>
+
+      <input class="form-control" type="text" placeholder="Fbs - (fasting blood sugar > 120 mg/dl) (1 = true; 0 = false)" aria-label="default input example" name="fbs"><br>
+
+      <input class="form-control" type="text" placeholder="Restecg - Resting Electrocardiographic Results" aria-label="default input example" name="restecg"><br>
+
+      <input class="form-control" type="text" placeholder="Thalach - Maximum Heart Rate Achieved" aria-label="default input example" name="thalach"><br>
+
+      <input class="form-control" type="text" placeholder="Exang - Exercise Induced Angina (1 = yes; 0 = no)" aria-label="default input example" name="exang"><br>
+
+      <input class="form-control" type="text" placeholder="Oldpeak - ST depression induced by exercise relative to rest" aria-label="default input example" name="oldpeak"><br>
+
+      <input class="form-control" type="text" placeholder="Slope - the slope of the peak exercise ST segment" aria-label="default input example" name="slope"><br>
+
+      <input class="form-control" type="text" placeholder="CA - number of major vessels (0-3) colored by flourosopy" aria-label="default input example" name="ca"><br>
+
+      <input class="form-control" type="text" placeholder="Thal - 3 = normal; 6 = fixed defect; 7 = reversable defect" aria-label="default input example" name="thal"><br>
+
+      <button type="submit" class="btn btn-outline-success btn-lg" value="predict">Success</button>
+  </form>
+{% endblock content %}    
+           
+
+{% block res %}
+  <h2>Result</h2> <hr>
+  <h5><b>Note:</b></h5>
+  <p>This is machine predicted result once you can go and visite doctors and take your decision</p>
+  <h4>{{ res_sms }}</h4>
+{% endblock res %}
