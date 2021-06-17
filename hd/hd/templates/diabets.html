@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Diabets Prediction Assistant</h2><hr>
+  {% load static %}
+  <h2>
+    <img class="circular--square" src="{% static '/images/diabetes.png' %}" alt="" srcset="">
+    Diabetes Prediction Assistant
+  </h2><hr>
   <form action="/diabets_res" method="post">
       {% csrf_token %}
 
@@ -14,14 +18,34 @@
       <input class="form-control" type="text" placeholder="Age Ex: 50.0" aria-label="default input example" name="age"><br>
       <input class="form-control" type="text" placeholder="Skin Ex: 1.3790" aria-label="default input example" name="skin"><br>
 
-      <button type="submit" class="btn btn-outline-success btn-lg" value="predict">Success</button>
+      <button type="submit" class="btn btn-outline-success btn-lg" value="predict">Submit--></button>
   </form>
 {% endblock content %}    
            
 
 {% block res %}
-  <h2>Result</h2> <hr>
+  <h2>
+    <img class="circular--square" src="{% static '/images/h_res.png' %}" alt="" srcset="">
+    Result
+  </h2> <hr>
   <h5><b>Note:</b></h5>
   <p>This is machine predicted result once you can go and visite doctors and take your decision</p>
-  <h4>{{ res_sms }}</h4>
+    <!-- <p class="res-h4">{{ res_sms }}</p> -->
+
+  {%for i in res_sms%}
+    {%if i == 0%}
+      <div class="img">
+      <img src="{% static '/images/cong.png' %}"><br><br>
+      <p class="res-p"> Congratulations You Dont Have Diabets! </p>
+      </div>
+    {% else %}
+      <div class="img">
+      <img src="{% static '/images/sorry.png' %}">
+      <br>
+      <br>
+      <p class="res-n">Sorry You Have Diabets </p>
+      </div>
+    {%endif%}
+  {%endfor%}
+
 {% endblock res %}

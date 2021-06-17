@@ -12,14 +12,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <!-- main css File Loading -->
-    <link rel="stylesheet" type="text/css" href="{% static 'stylesheet/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
 
     <title>Home</title>
 </head>
-<body>
+<body> 
     <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #a5d4f7;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">ABC Multispeciality Hospital</a>
+          <img class="circular--square" src="{% static '/images/nav_logo.png' %}" alt="" srcset="">
+          <a class="navbar-brand nave-brand-size" style="color: rgb(204, 38, 88);" href="#">ABC Multispeciality Hospital</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -35,25 +36,27 @@
                 <a class="nav-link" href="{% url 'diabets' %}">Diabets</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="#">About</a>
               </li>
+              
             </ul>
           </div>
         </div>
       </nav> <br>
 
-      <div class="container px-4">
+      <div class="container px-3">
           <div class="row gx-5">
               <div class="col">
-                  <div class="shadow p-3 mb-5 bg-body rounded">
+                  <div class="shadow p-3 mb-5 bg-body rounded content-section">
                   <div class="p-3 border bg-light">
                {% block content %}
+                    
                {% endblock content %}
            </div>
           </div>
         </div>
           <div class="col">
-            <div class="shadow p-3 mb-5 bg-body rounded">
+            <div class="shadow p-3 mb-5 bg-body rounded content-section">
                 <div class="p-3 border bg-light">
                 {% block res %}
                 {% endblock res %}
@@ -69,13 +72,13 @@
 
       <div style="background-color: #a5d4f7; height: 50px; text-align: center">
         <div class="row">
-          <div class="col">
+          <div class="col footer">
            <b> BC Multispeciality Hospital </b>
           </div>
-          <div class="col-5">
-           <b>All @copy rights are regerved for ABC</b>
+          <div class="col-5 footer">
+           <b>All 	&#169copy rights are reserved for ABC Hospital</b>
           </div>
-          <div class="col">
+          <div class="col footer">
             <b>2021</b> 
           </div>
         </div>

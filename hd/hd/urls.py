@@ -27,3 +27,4 @@ urlpatterns = [
     path('home',views.lr_prediction),
     path('diabets_res', views.diabets_prediction)
 ]
+

@@ -32,11 +32,11 @@ def lr_prediction(request):
 
     res = load_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
 
-    if res == 0:
-        res_mes = 'Congratulations you dont have Heart Disease '
-    else:
-        res_mes = 'Sorry you have Heart Disease'
-    return render(request, 'index.html', {'res_sms':res_mes})
+    # if res == 0:
+    #     res_mes = 'Congratulations you dont have Heart Disease '
+    # else:
+    #     res_mes = 'Sorry you have Heart Disease'
+    return render(request, 'index.html', {'res_sms':res})
 
 
 def diabets_prediction(request):
@@ -54,9 +54,8 @@ def diabets_prediction(request):
 
     res = load_model.predict([[num_preg, glucose_conc, diastolic_bp, insulin, bmi, diab_pred, age, skin]])
 
-    if res == 0:
-        res_mes = 'Congratulations you dont have Diabets'
-    else:
-        res_mes = 'Sorry you have Diabets'
-
-    return render(request, 'diabets.html', {'res_sms':res_mes})
+    # if res == 0:
+    #     res_mes = 'Congratulations you dont have Diabets'
+    # else:
+    #     res_mes = 'Sorry you have Diabets'
+    return render(request, 'diabets.html', {'res_sms':res, 'res_values':[num_preg, glucose_conc, diastolic_bp, insulin, bmi, diab_pred, age, skin]})
